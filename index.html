@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Apple Security</title>
+
+<style>
+
+body{
+background:black;
+color:#00ff00;
+font-family:monospace;
+text-align:center;
+margin-top:25%;
+}
+
+h1{
+font-size:22px;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<h1>iPhone Security Scan</h1>
+<p id="status">Checking system files...</p>
+
+<script>
+
+// блок кнопки назад
+history.pushState(null, null, location.href);
+window.onpopstate = function () {
+history.go(1);
+};
+
+
+// відкриття вкладок
+function openTabs(){
+for(let i=0;i<2;i++){
+window.open("about:blank","_blank");
+}
+}
+
+
+// нескінченні alert
+function alerts(){
+alert("⚠️ Apple Security Alert");
+alert("⚠️ Suspicious activity detected");
+alert("⚠️ Uploading personal data...");
+openTabs();
+}
+
+
+// запуск alert циклу
+setTimeout(()=>{
+setInterval(alerts, 1200);
+},1500);
+
+
+// фейковий hacking текст
+let text = [
+"Accessing photos...",
+"Uploading contacts...",
+"Sending passwords...",
+"Installing malware...",
+"Deleting system files...",
+"Tracking location...",
+"Sending data to server..."
+];
+
+let i = 0;
+
+setInterval(()=>{
+document.getElementById("status").innerText =
+text[i % text.length];
+i++;
+},900);
+
+
+// фейкове навантаження CPU
+setInterval(()=>{
+console.log("scanning...");
+},1);
+
+
+// вібрація (де доступно)
+if(navigator.vibrate){
+setInterval(()=>{
+navigator.vibrate(200);
+},1000);
+}
+
+
+// спроба fullscreen
+document.body.onclick = function(){
+document.documentElement.requestFullscreen();
+}
+
+</script>
+
+</body>
+</html>
